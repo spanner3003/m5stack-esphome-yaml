@@ -14,7 +14,7 @@ esp32:
 packages:
   remote_package_files:
       url: https://github.com/spanner3003/m5stack-esphome-yaml
-      ref: feature/tab5-faster-battery-percentage
+      ref: 2592c42476e13cda054a918190e23b593ebf80dd
       files: [ common/tab5-globals.yaml, common/tab5-lvgl.yaml, common/tab5-scripts.yaml]
       refresh: 1d
 
