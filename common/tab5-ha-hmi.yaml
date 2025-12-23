@@ -185,12 +185,24 @@ sensor:
     adc_averaging: 16
     max_current: 8.192A
     shunt_resistance: 0.005ohm
+    update_interval: 2s  # Faster updates (was probably 60s or never)
     bus_voltage:
       id: battery_voltage
       name: Battery Voltage
+      filters:
+        - throttle_average: 2s  # Smooth out noise while staying responsive
+      on_value:
+        # Update icon when voltage changes significantly
+        - script.execute: update_battery_icon
     current:
       id: battery_current
       name: Battery Current
+      filters:
+        - throttle_average: 1s  # Quick response to current changes
+      on_value:
+        # Instant update when current changes (charging/discharging detection)
+        then:
+          - script.execute: update_battery_icon
       # Positive means discharging
       # Negative means charging
   
