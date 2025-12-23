@@ -146,6 +146,12 @@ binary_sensor:
       pi4ioe5v6408: pi4ioe2
       number: 6
       mode: INPUT_PULLDOWN
+    on_press:
+      # INSTANT update when charging starts
+      - script.execute: update_battery_icon
+    on_release:
+      # INSTANT update when charging stops
+      - script.execute: update_battery_icon
 
   - platform: gpio
     id: headphone_detect
