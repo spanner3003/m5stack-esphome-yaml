@@ -205,6 +205,7 @@ sensor:
       name: Battery Current
       filters:
         - throttle_average: 1s  # Quick response to current changes
+        - delta: 0.2  # Trigger if current changes by 0.2A
       on_value:
         # Instant update when current changes (charging/discharging detection)
         then:
