@@ -21,3 +21,11 @@ globals:
   - id: fan_modes_table
     type: const char *[4]
     initial_value: '{ "high", "medium", "low", "auto" }'
+  - id: image_buffer
+    type: uint8_t*
+    restore_value: no
+    initial_value: 'nullptr'
+  - id: camera_overlay_obj
+    type: lv_obj_t*
+    restore_value: no
+    initial_value: 'nullptr'
