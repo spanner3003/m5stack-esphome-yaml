@@ -3,6 +3,10 @@ globals:
     type: int
     restore_value: no
     initial_value: '0'
+  - id: system_booted
+    type: bool
+    restore_value: no
+    initial_value: 'false'
   - id: light_r
     type: uint8_t
     restore_value: no
