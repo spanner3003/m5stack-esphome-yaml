@@ -23,7 +23,8 @@ font:
       "\U000F18DE", # mdi:ceiling-light-multiple-outline
       "\U000F18DD", # mdi:ceiling-light-multiple
       "\U000F0425", # mdi:power
-      "\U000F07E4", # mdi:CO2
+      "\U000F07E4", # mdi:CO2 (used to indicate the level of carbon dioxide)
+      "\U000F12FE", # mdi:CO (used to indicate the level of carbon monoxide)
       "\U000F1B5A", # mdi:weather-dust (used to indicate the level of PM2.5)
       "\U000F05A9", # mdi:wifi
       "\U000F007A", # mdi:battery-10
