@@ -816,6 +816,26 @@ lvgl:
                   text: "1970-01-01 Thu"
                   align: CENTER
                   y: 30
+              - slider:
+                  id: backlight_slider
+                  width: 700
+                  height: 60
+                  align: CENTER
+                  y: 120
+                  min_value: 1
+                  max_value: 255
+                  bg_color: 0x2C2C2C
+                  indicator:
+                    bg_color: 0xFFD966
+                  knob:
+                    bg_color: 0xFFFFFF
+                  on_value:
+                    then:
+                      - homeassistant.action:
+                          action: light.turn_on
+                          data:
+                            entity_id: light.display_backlight
+                            brightness: !lambda "return (int)x;"
               - obj:
                   width: 800
                   height: 200
