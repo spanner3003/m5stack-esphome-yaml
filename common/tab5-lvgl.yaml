@@ -803,7 +803,7 @@ lvgl:
       widgets:
         - obj:
             styles: content_container
-            scrollbar_mode: OFF
+            scrollbar_mode: false
             scroll_dir: NONE
             widgets:
               - label:
