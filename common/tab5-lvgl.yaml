@@ -911,14 +911,14 @@ lvgl:
                         grid_cell_x_align: CENTER
                         grid_cell_y_align: CENTER
 
-                  - label:
-                      id: humi_label
-                      text_font: montserrat_32
-                      text: "-"
-                      grid_cell_column_pos: 3
-                      grid_cell_row_pos: 0
-                      grid_cell_x_align: START
-                      grid_cell_y_align: CENTER
+                    - label:
+                        id: humi_label
+                        text_font: montserrat_32
+                        text: "-"
+                        grid_cell_column_pos: 3
+                        grid_cell_row_pos: 0
+                        grid_cell_x_align: START
+                        grid_cell_y_align: CENTER
 
                     - label:
                         text_font: extra_icon
