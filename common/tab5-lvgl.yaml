@@ -803,19 +803,9 @@ lvgl:
       widgets:
         - obj:
             styles: content_container
+            scrollbar_mode: OFF
+            scroll_dir: NONE
             widgets:
-              - label:
-                  id: time_label
-                  text_font: montserrat_96
-                  text: "00:00:00"
-                  align: CENTER
-                  y: -100
-              - label:
-                  id: date_label
-                  text_font: montserrat_32
-                  text: "1970-01-01 Thu"
-                  align: CENTER
-                  y: 30
               - label:
                   text: "Screen Brightness"
                   text_font: montserrat_24
@@ -841,6 +831,18 @@ lvgl:
                           data:
                             entity_id: light.display_backlight
                             brightness: !lambda "return (int)x;"
+              - label:
+                  id: time_label
+                  text_font: montserrat_96
+                  text: "00:00:00"
+                  align: CENTER
+                  y: -100
+              - label:
+                  id: date_label
+                  text_font: montserrat_32
+                  text: "1970-01-01 Thu"
+                  align: CENTER
+                  y: 30
               - obj:
                   width: 800
                   height: 200
