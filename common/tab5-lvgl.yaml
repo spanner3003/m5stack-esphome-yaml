@@ -805,18 +805,26 @@ lvgl:
             styles: content_container
             scrollbar_mode: "OFF"
             scroll_dir: NONE
+
             widgets:
+              # ─────────────────────────────────────
+              # Brightness label
+              # ─────────────────────────────────────
               - label:
                   text: "Screen Brightness"
                   text_font: montserrat_24
-                  align: CENTER
-                  y: 80
+                  align: TOP_MID
+                  y: 10
+
+              # ─────────────────────────────────────
+              # Brightness slider
+              # ─────────────────────────────────────
               - slider:
                   id: backlight_slider
                   width: 700
                   height: 60
-                  align: CENTER
-                  y: 120
+                  align: TOP_MID
+                  y: 45
                   min_value: 1
                   max_value: 255
                   bg_color: 0x2C2C2C
@@ -824,6 +832,14 @@ lvgl:
                     bg_color: 0xFFD966
                   knob:
                     bg_color: 0xFFFFFF
+
+                  # prevent parent from stealing touch
+                  gesture_bubble: false
+                  event_bubble: false
+                  scroll_chain_ver: false
+                  scroll_chain_hor: false
+                  press_lock: true
+
                   on_value:
                     then:
                       - homeassistant.action:
@@ -831,90 +847,110 @@ lvgl:
                           data:
                             entity_id: light.display_backlight
                             brightness: !lambda "return (int)x;"
+
+              # ─────────────────────────────────────
+              # Time
+              # ─────────────────────────────────────
               - label:
                   id: time_label
                   text_font: montserrat_96
                   text: "00:00:00"
-                  align: CENTER
-                  y: -100
+                  align: TOP_MID
+                  y: 125
+
+              # ─────────────────────────────────────
+              # Date
+              # ─────────────────────────────────────
               - label:
                   id: date_label
                   text_font: montserrat_32
                   text: "1970-01-01 Thu"
-                  align: CENTER
-                  y: 30
+                  align: TOP_MID
+                  y: 225
+
+              # ─────────────────────────────────────
+              # Sensor grid
+              # ─────────────────────────────────────
               - obj:
                   width: 800
                   height: 200
                   bg_opa: TRANSP
                   border_opa: TRANSP
-                  align: CENTER
-                  y: 200
+                  align: TOP_MID
+                  y: 300
                   layout:
                     type: GRID
                     grid_columns: [FR(20), FR(30), FR(20), FR(30)]
                     grid_rows: [FR(1), FR(1)]
                     pad_row: 24
                     pad_column: 24
+
                   widgets:
                     - label:
                         text_font: extra_icon
                         text: "\U000F050F"
-                        grid_cell_column_pos: 0 
-                        grid_cell_row_pos: 0 
+                        grid_cell_column_pos: 0
+                        grid_cell_row_pos: 0
                         grid_cell_x_align: CENTER
                         grid_cell_y_align: CENTER
+
                     - label:
                         id: temp_label
                         text_font: montserrat_32
                         text: "-"
-                        grid_cell_column_pos: 1 
-                        grid_cell_row_pos: 0 
+                        grid_cell_column_pos: 1
+                        grid_cell_row_pos: 0
                         grid_cell_x_align: START
                         grid_cell_y_align: CENTER
+
                     - label:
                         text_font: extra_icon
                         text: "\U000F058E"
-                        grid_cell_column_pos: 2 
-                        grid_cell_row_pos: 0 
+                        grid_cell_column_pos: 2
+                        grid_cell_row_pos: 0
                         grid_cell_x_align: CENTER
                         grid_cell_y_align: CENTER
-                    - label:
-                        text_font: montserrat_32
-                        id: humi_label
-                        text: "-"
-                        grid_cell_column_pos: 3 
-                        grid_cell_row_pos: 0 
-                        grid_cell_x_align: START
-                        grid_cell_y_align: CENTER
+
+                  - label:
+                      id: humi_label
+                      text_font: montserrat_32
+                      text: "-"
+                      grid_cell_column_pos: 3
+                      grid_cell_row_pos: 0
+                      grid_cell_x_align: START
+                      grid_cell_y_align: CENTER
+
                     - label:
                         text_font: extra_icon
                         text: "\U000F12FE"
-                        grid_cell_column_pos: 0 
-                        grid_cell_row_pos: 1 
+                        grid_cell_column_pos: 0
+                        grid_cell_row_pos: 1
                         grid_cell_x_align: CENTER
                         grid_cell_y_align: CENTER
+
                     - label:
-                        text_font: montserrat_32
                         id: co_label
+                        text_font: montserrat_32
                         text: "- ppm"
-                        grid_cell_column_pos: 1 
-                        grid_cell_row_pos: 1 
+                        grid_cell_column_pos: 1
+                        grid_cell_row_pos: 1
                         grid_cell_x_align: START
                         grid_cell_y_align: CENTER
+
                     - label:
                         text_font: extra_icon
                         text: "\U000F1B5A"
-                        grid_cell_column_pos: 2 
-                        grid_cell_row_pos: 1 
+                        grid_cell_column_pos: 2
+                        grid_cell_row_pos: 1
                         grid_cell_x_align: CENTER
                         grid_cell_y_align: CENTER
+
                     - label:
-                        text_font: montserrat_32
                         id: iaq_label
+                        text_font: montserrat_32
                         text: "-"
-                        grid_cell_column_pos: 3 
-                        grid_cell_row_pos: 1 
+                        grid_cell_column_pos: 3
+                        grid_cell_row_pos: 1
                         grid_cell_x_align: START
                         grid_cell_y_align: CENTER
         - label:
