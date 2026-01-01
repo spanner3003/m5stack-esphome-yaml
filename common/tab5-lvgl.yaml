@@ -845,7 +845,7 @@ lvgl:
                       - homeassistant.action:
                           action: light.turn_on
                           data:
-                            entity_id: light.display_backlight
+                            entity_id: light.star_trek_tricorder_display_backlight
                             brightness: !lambda "return (int)x;"
 
               - label:
