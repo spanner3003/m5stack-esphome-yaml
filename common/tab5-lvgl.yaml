@@ -848,12 +848,12 @@ lvgl:
                             entity_id: light.display_backlight
                             brightness: !lambda "return (int)x;"
 
-               - label:
-                   id: backlight_pct_label
-                   text_font: montserrat_24
-                   text: "--%"
-                   align: TOP_MID
-                   y: 110
+              - label:
+                  id: backlight_pct_label
+                  text_font: montserrat_24
+                  text: "--%"
+                  align: TOP_MID
+                  y: 110
 
               # ─────────────────────────────────────
               # Time
